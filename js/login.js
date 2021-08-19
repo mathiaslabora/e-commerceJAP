@@ -2,10 +2,11 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 const data = [];
+const userText = document.getElementById('user');
+const passText = document.getElementById('pass');
 
+//funcion que impide avanzar al index si los campos de usuario y constraseña estan vacios
 const buttonSend = () => {
-    const userText = document.getElementById('user');
-    const passText = document.getElementById('pass');
     const user = userText.value;
     const pass = passText.value;
     if (!user || !pass) {
@@ -16,12 +17,14 @@ const buttonSend = () => {
             pass
         })
 
-        localStorage.setItem("dataUser", JSON.stringify(data))
+        localStorage.setItem("dataUser", JSON.stringify(data))//guarda array "data" en localstorage
         window.location.href = "index.html";//redirecciona la pag hacia index.html
+        //limpia los espacios de usuario y contraseña.
         userText.value = "";
         passText.value = "";
     }
 }
 document.addEventListener("DOMContentLoaded", function (e) {
-    document.getElementById("enviar").addEventListener("click", buttonSend);//ejecuta por medio del boton cuando click la funcion correspondiente
+    //boton para ingresar - 
+    document.getElementById("enviar").addEventListener("click", buttonSend);
 });

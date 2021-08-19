@@ -139,3 +139,9 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+.titleCenter{
+  text-align: center;
+}
+.prodSt{
+  background-color: #21a0bc18;
+}
