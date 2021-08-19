@@ -6,6 +6,11 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
+
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id" content="26595326380-el77avcq1dd736r4kqtnlit9kk0t1htf.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+
   <title>eMercado - Todo lo que busques está aquí</title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
@@ -14,7 +19,8 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <style>
-    html, body{
+    html,
+    body {
       height: 100%;
     }
 
@@ -35,19 +41,45 @@
       margin: auto;
     }
   </style>
+
 </head>
 
-<body class="text-center">
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 1 (Fecha de entrega: 08/08/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
-  </div>
+<body>
+  <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+  <script>
+    function onSignIn(googleUser) {
+      // Useful data for your client-side scripts:
+      var profile = googleUser.getBasicProfile();
+      console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+      console.log('Full Name: ' + profile.getName());
+      console.log('Given Name: ' + profile.getGivenName());
+      console.log('Family Name: ' + profile.getFamilyName());
+      console.log("Image URL: " + profile.getImageUrl());
+      console.log("Email: " + profile.getEmail());
 
-  <script src="js/init.js"></script>
+      // The ID token you need to pass to your backend:
+      var id_token = googleUser.getAuthResponse().id_token;
+      console.log("ID Token: " + id_token);
+    }
+  </script>
+
+  <form class="signin">
+    <h2 style="color: #219FBC;">Ingrese sus datos:</h2><br>
+    <label for="user">Nombre de usuario o mail:</label><br>
+    <input type="inputEmail" size="30" id="user" name="user"><br>
+    <label for="pass">Contraseña:</label><br>
+    <input type="password" size="30" id="pass" name="pass"><br>
+
+    <a href="my-profile.html">No estas registrado?</a>
+    <br><br>
+
+    <label for="checkbox"></label>
+    <input type="checkbox" id="checkbox" name="checkbox">Recuerdame<br><br>
+
+    <input class="btn btn-primary" type="button" id="enviar" value="Ingresar">
+  </form>
+  <img src="img/login.png" alt="imagen login">
   <script src="js/login.js"></script>
 </body>
+
 </html>
