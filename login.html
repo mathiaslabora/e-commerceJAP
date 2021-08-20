@@ -45,7 +45,23 @@
 </head>
 
 <body>
-  <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+  
+
+  <form class="signin">
+    <h2 style="color: #219FBC;">Ingrese sus datos:</h2><br>
+    <label for="user">Nombre de usuario o mail:</label><br>
+    <input type="inputEmail" size="30" id="user" name="user"><br>
+    <label for="pass">Contraseña:</label><br>
+    <input type="password" size="30" id="pass" name="pass"><br>
+
+    <a href="my-profile.html">No estas registrado?</a>
+    <br><br>
+
+    <label for="checkbox"></label>
+    <input type="checkbox" id="checkbox" name="checkbox">Recuerdame<br><br>
+
+    <input class="btn btn-primary" type="button" id="enviar" value="Ingresar"><br><br>
+    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
   <script>
     function onSignIn(googleUser) {
       // Useful data for your client-side scripts:
@@ -62,21 +78,17 @@
       console.log("ID Token: " + id_token);
     }
   </script>
-
-  <form class="signin">
-    <h2 style="color: #219FBC;">Ingrese sus datos:</h2><br>
-    <label for="user">Nombre de usuario o mail:</label><br>
-    <input type="inputEmail" size="30" id="user" name="user"><br>
-    <label for="pass">Contraseña:</label><br>
-    <input type="password" size="30" id="pass" name="pass"><br>
-
-    <a href="my-profile.html">No estas registrado?</a>
-    <br><br>
-
-    <label for="checkbox"></label>
-    <input type="checkbox" id="checkbox" name="checkbox">Recuerdame<br><br>
-
-    <input class="btn btn-primary" type="button" id="enviar" value="Ingresar">
+  
+  <a href="#" onclick="signOut();">Sign out</a>
+  <script>//log out
+    function signOut() {
+      var auth2 = gapi.auth2.getAuthInstance();
+      auth2.signOut().then(function () {
+        console.log('User signed out.');
+      });
+    }
+  </script>
+  
   </form>
   <img src="img/login.png" alt="imagen login">
   <script src="js/login.js"></script>
