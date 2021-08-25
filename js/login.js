@@ -41,7 +41,7 @@ function onSignIn(googleUser) {
     console.log("ID Token: " + id_token);
     //para validar usuario:
     data.push({
-        user=profile.getName,
+        user=profile.getName(),
         pass=id_token
     })
     
