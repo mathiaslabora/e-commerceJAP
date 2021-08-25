@@ -42,6 +42,7 @@ function onSignIn(googleUser) {
     //para validar usuario:
     data.user = profile.getName();
     data.pass = id_token;
+    window.location.href = "index.html";
   }
   //log out de google
   
