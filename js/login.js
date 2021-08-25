@@ -43,7 +43,6 @@ function onSignIn(googleUser) {
     userText.value = profile.getName;
     passText.value = id_token;
   }
-  console.log(profile)
   //log out de google
   
   function signOut() {
