@@ -4,7 +4,6 @@
 
 const createListOfProd = (products) => {
     let listado = document.getElementById('listadoColeccion');
-    listado.innerHTML = ''
         for (let key of products) {
         const lista = document.createElement('div');
         lista.innerHTML = `<div class="row prodSt">
@@ -24,8 +23,6 @@ const createListOfProd = (products) => {
     }
 }
 document.addEventListener("DOMContentLoaded", async function (e) {
-    const obtDiv = document.getElementsByTagName('div')[1]; //guarda el div contenedor de productos
-    obtDiv.id = 'listadoColeccion';// le doy un id para utilizarlo con mas facilidad*/
     const products = (await getJSONData(PRODUCTS_URL)).data //traigo el json correspondiente
     createListOfProd(products) //ejecuto la funcion para la creacion del listado
 })
