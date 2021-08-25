@@ -40,7 +40,7 @@ function onSignIn(googleUser) {
     var id_token = googleUser.getAuthResponse().id_token;
     console.log("ID Token: " + id_token);
   }
-
+  console.log(profile)
   //log out de google
   
   function signOut() {
@@ -54,5 +54,5 @@ function onSignIn(googleUser) {
 document.addEventListener("DOMContentLoaded", function (e) {
     //boton para ingresar - 
     document.getElementById("enviar").addEventListener("click", buttonSend);
-    console.log(profile)
+   
 });
