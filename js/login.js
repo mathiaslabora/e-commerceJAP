@@ -40,8 +40,12 @@ function onSignIn(googleUser) {
     var id_token = googleUser.getAuthResponse().id_token;
     console.log("ID Token: " + id_token);
     //para validar usuario:
-    data.user = profile.getName();
-    data.pass = id_token;
+    data.push({
+        user=profile.getName,
+        pass=id_token
+    })
+    
+    localStorage.setItem("dataUser", JSON.stringify(data))//guarda array "data" en localstorage
     window.location.href = "index.html";
   }
   //log out de google
