@@ -5,11 +5,13 @@ const data = [];
 const userText = document.getElementById('user');
 const passText = document.getElementById('pass');
 
-const clean = () =>{localStorage.setItem("dataUser", JSON.stringify(data))//guarda array "data" en localstorage
-        window.location.href = "index.html";//redirecciona la pag hacia index.html
-        //limpia los espacios de usuario y contraseña.
-        userText.value = "";
-        passText.value = "";}
+const clean = () => {
+    localStorage.setItem("dataUser", JSON.stringify(data))//guarda array "data" en localstorage
+    window.location.href = "index.html";//redirecciona la pag hacia index.html
+    //limpia los espacios de usuario y contraseña.
+    userText.value = "";
+    passText.value = "";
+}
 //funcion que impide avanzar al index si los campos de usuario y constraseña estan vacios
 const buttonSend = () => {
     const user = userText.value;
@@ -21,11 +23,9 @@ const buttonSend = () => {
             user,
             pass
         })
-
-        
-    }
+}
     clean()
-    }
+}
 
 //logueo de google:
 function onSignIn(googleUser) {
@@ -42,23 +42,23 @@ function onSignIn(googleUser) {
     var id_token = googleUser.getAuthResponse().id_token;
     console.log("ID Token: " + id_token);
     //para validar usuario:
-    
-        userText.value=profile.getGivenName();
-        passText.value=profile.getFamilyName();
-        clean();
-  }
-  //log out de google
-  
-  /* function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-    });
-  } */
+    localStorage.setItem("googleData", JSON.stringify(googleUser));
+    userText.value = profile.getGivenName();
+    passText.value = profile.getFamilyName();
+    clean();
+}
+//log out de google
 
- 
+/* function signOut() {
+  var auth2 = gapi.auth2.getAuthInstance();
+  auth2.signOut().then(function () {
+    console.log('User signed out.');
+  });
+} */
+
+
 document.addEventListener("DOMContentLoaded", function (e) {
     //boton para ingresar - 
     document.getElementById("enviar").addEventListener("click", buttonSend);
-   
+
 });
