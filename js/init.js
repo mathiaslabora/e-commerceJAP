@@ -77,7 +77,7 @@ if (parseRedir === null) {
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
-  /* JSON.parse(localStorage.getItem('googleData')); */
+  JSON.parse(localStorage.getItem('googleData'));
   //ejecuto la funcion logof cuando se clickea en boton cerrar sesion
   /* document.getElementById("cerrar").addEventListener("click", logOf) */
 });

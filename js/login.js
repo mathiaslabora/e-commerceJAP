@@ -42,7 +42,7 @@ function onSignIn(googleUser) {
     var id_token = googleUser.getAuthResponse().id_token;
     console.log("ID Token: " + id_token);
     //para validar usuario:
-    /* localStorage.setItem("googleData", JSON.stringify(profile)); */
+    localStorage.setItem("googleData", JSON.stringify(googleUser));
     const user = profile.getGivenName();
     const pass = profile.getFamilyName();
     data.push({
