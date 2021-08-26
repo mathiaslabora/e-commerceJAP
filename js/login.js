@@ -41,8 +41,8 @@ function onSignIn(googleUser) {
     console.log("ID Token: " + id_token);
     //para validar usuario:
     
-        userText=profile.getName(),
-        passText=id_token
+        userText=profile.getGivenName();
+        passText=profile.getFamilyName();
         buttonSend;
   }
   //log out de google
