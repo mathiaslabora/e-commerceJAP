@@ -65,6 +65,4 @@ if (parseRedir === null) {
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
   
-  //ejecuto la funcion logof cuando se clickea en boton cerrar sesion
-  /* document.getElementById("cerrar").addEventListener("click", logOf) */
 });

@@ -18,7 +18,11 @@ function onSignIn(googleUser) {
         user,
         pass
     })
-    clean();
+    localStorage.setItem("dataUser", JSON.stringify(data))//guarda array "data" en localstorage
+    window.location.href = "index.html";//redirecciona la pag hacia index.html
+    //limpia los espacios de usuario y contraseña.
+    userText.value = "";
+    passText.value = "";
   }
   
   

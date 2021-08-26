@@ -23,7 +23,7 @@ const buttonSend = () => {
             user,
             pass
         })
-}
+    }
     clean()
 }
 
