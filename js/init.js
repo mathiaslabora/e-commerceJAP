@@ -41,28 +41,11 @@ var getJSONData = function (url) {
 }
 
 
-/* function signOut() {
-  var auth2 = gapi.auth2.getAuthInstance();
-  auth2.signOut().then(function () {
-    console.log('User signed out.');
-  });} */
- 
-
-//funcion para cerrar sesion, borra contenido del localstorage y recarga la pagina
-/* const logOf = () => {
-  localStorage.clear();
-  window.location.reload();
- } */
-  //ejecucion sign out de google
-
-//con parseRedir, redirijo la pagina al login si localStorage esta vacio.
 const parseRedir = JSON.parse(localStorage.getItem('dataUser'));
 if (parseRedir === null) {
   window.location.href = "login.html";
 }
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
+
 document.addEventListener("DOMContentLoaded", function (e) {
   
 });
