@@ -39,12 +39,23 @@ var getJSONData = function (url) {
       return result;
     });
 }
-//funcion para cerrar sesion, borra contenido del localstorage y recarga la pagina
-const logOf = () => {
+
+function signOut() {
+  var auth2 = gapi.auth2.getAuthInstance();
+  auth2.signOut().then(function () {
+    console.log('User signed out.');
+  });
   localStorage.clear();
   window.location.reload();
-  signOut();//ejecucion sign out de google
 }
+
+//funcion para cerrar sesion, borra contenido del localstorage y recarga la pagina
+/* const logOf = () => {
+  localStorage.clear();
+  window.location.reload();
+ } */
+  //ejecucion sign out de google
+
 //con parseRedir, redirijo la pagina al login si localStorage esta vacio.
 const parseRedir = JSON.parse(localStorage.getItem('dataUser'));
 if (parseRedir === null) {
@@ -55,5 +66,5 @@ if (parseRedir === null) {
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
   //ejecuto la funcion logof cuando se clickea en boton cerrar sesion
-  document.getElementById("cerrar").addEventListener("click", logOf)
+  /* document.getElementById("cerrar").addEventListener("click", logOf) */
 });
