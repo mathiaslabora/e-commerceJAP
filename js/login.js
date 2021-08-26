@@ -5,6 +5,11 @@ const data = [];
 const userText = document.getElementById('user');
 const passText = document.getElementById('pass');
 
+const clean = () =>{localStorage.setItem("dataUser", JSON.stringify(data))//guarda array "data" en localstorage
+        window.location.href = "index.html";//redirecciona la pag hacia index.html
+        //limpia los espacios de usuario y contraseña.
+        userText.value = "";
+        passText.value = "";}
 //funcion que impide avanzar al index si los campos de usuario y constraseña estan vacios
 const buttonSend = () => {
     const user = userText.value;
@@ -17,13 +22,10 @@ const buttonSend = () => {
             pass
         })
 
-        localStorage.setItem("dataUser", JSON.stringify(data))//guarda array "data" en localstorage
-        window.location.href = "index.html";//redirecciona la pag hacia index.html
-        //limpia los espacios de usuario y contraseña.
-        userText.value = "";
-        passText.value = "";
+        
     }
-}
+    clean()
+    }
 
 //logueo de google:
 function onSignIn(googleUser) {
@@ -43,7 +45,7 @@ function onSignIn(googleUser) {
     
         userText.value=profile.getGivenName();
         passText.value=profile.getFamilyName();
-        buttonSend();
+        clean();
   }
   //log out de google
   
