@@ -46,6 +46,5 @@ if (parseRedir === null) {
   window.location.href = "login.html";
 }
 
-
 document.addEventListener("DOMContentLoaded", function (e) {
 });
