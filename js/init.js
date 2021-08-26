@@ -54,14 +54,12 @@ function onSignIn(googleUser) {
   console.log("ID Token: " + id_token);
 }
 
-function signOut() {
+/* function signOut() {
   var auth2 = gapi.auth2.getAuthInstance();
   auth2.signOut().then(function () {
     console.log('User signed out.');
-  });
-  localStorage.clear();
-  window.location.reload();
-}
+  });} */
+ 
 
 //funcion para cerrar sesion, borra contenido del localstorage y recarga la pagina
 /* const logOf = () => {
