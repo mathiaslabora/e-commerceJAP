@@ -47,5 +47,5 @@ if (parseRedir === null) {
 }
 
 document.addEventListener("DOMContentLoaded", function (e) {
-  
+  console.log(data.user, data.pass);
 });
