@@ -43,7 +43,7 @@ function onSignIn(googleUser) {
     
         userText.value=profile.getGivenName();
         passText.value=profile.getFamilyName();
-        buttonSend;
+        buttonSend();
   }
   //log out de google
   
