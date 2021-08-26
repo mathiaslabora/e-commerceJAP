@@ -43,6 +43,7 @@ var getJSONData = function (url) {
 const logOf = () => {
   localStorage.clear();
   window.location.reload();
+  signOut();//ejecucion sign out de google
 }
 //con parseRedir, redirijo la pagina al login si localStorage esta vacio.
 const parseRedir = JSON.parse(localStorage.getItem('dataUser'));
