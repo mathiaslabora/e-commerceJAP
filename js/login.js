@@ -32,5 +32,4 @@ const buttonSend = () => {
 
 document.addEventListener("DOMContentLoaded", function (e) {
     document.getElementById("enviar").addEventListener("click", buttonSend);
-
 });
