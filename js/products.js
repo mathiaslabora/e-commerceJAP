@@ -22,7 +22,11 @@ const createListOfProd = (products) => {
         listado.appendChild(lista)
     }
 }
+
+
 document.addEventListener("DOMContentLoaded", async function (e) {
     const products = (await getJSONData(PRODUCTS_URL)).data //traigo el json correspondiente
     createListOfProd(products) //ejecuto la funcion para la creacion del listado
+
+    
 })

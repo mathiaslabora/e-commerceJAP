@@ -145,3 +145,21 @@ a.custom-card:hover {
 .prodSt{
   background-color: #21a0bc18;
 }
+
+.formFilter{
+float: right;
+font-size: small;
+}
+.buttonFilt{
+
+  border-color: #21a0bc7a;
+  border-style:ridge;
+  background-color:rgba(233, 233, 233, 0.26);
+}
+.buttonFilt:hover{
+  color: #21a0bc;
+  border-radius: 5px;
+  opacity: 50;
+  font-size:large;
+  background-color: #21a0bc2c;
+}

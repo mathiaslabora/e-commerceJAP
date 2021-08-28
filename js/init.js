@@ -41,7 +41,7 @@ var getJSONData = function (url) {
 }
 
 
-const parseRedir = JSON.parse(sessionStorage.getItem('dataUser'));
+const parseRedir = JSON.parse(localStorage.getItem('dataUser'));
 if (parseRedir === null) {
   window.location.href = "login.html";
 }
