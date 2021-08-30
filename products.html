@@ -23,17 +23,19 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      <a class="py-2 d-none d-md-inline-block" id="showUser" href=""></a>
     </div>
   </nav>
   <br>
   <h2 class="container titleCenter">Aqui se detallan nuestros productos:</h2><br><br>
 
-  <div class="container" id="listadoColeccion">
-    
+  <div class="container" id="buttonsFilter">
     <form class="formFilter">
-      Precio desde: <input type="text" id="from"size="5">
-      Hasta <input type="text" id="to" size="5">
-      <input type="button" id="filter" value="Filtrar">
+      <label for="from">
+    Precio desde:</label> <input class="buttonFilt" type="number" id="from" width="50%">
+    <label for="to">Hasta</label><input class="buttonFilt" type="number" id="to">
+    <label for="filter"><i class="fas fa-filter"></i></label>
+    <input class="buttonFilt fa-filter:before" type="button" id="filter" value="Filtrar">
     </form><br><br>
 
     <form class="formFilter">
@@ -43,6 +45,10 @@
       <input class="buttonFilt" type="button" id="REL" value="Relevancia">
 </form><br><br>
  
+  </div>
+  <div class="container" id="listadoColeccion">
+    
+   
 </div>
   </footer>
   <div id="spinner-wrapper">

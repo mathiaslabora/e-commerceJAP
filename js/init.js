@@ -41,10 +41,13 @@ var getJSONData = function (url) {
 }
 
 
-const parseRedir = JSON.parse(localStorage.getItem('dataUser'));
+
+
+document.addEventListener("DOMContentLoaded", function (e) {
+
+  const parseRedir = JSON.parse(localStorage.getItem('dataUser'));
 if (parseRedir === null) {
   window.location.href = "login.html";
 }
 
-document.addEventListener("DOMContentLoaded", function (e) {
 });
