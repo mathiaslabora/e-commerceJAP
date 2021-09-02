@@ -1,16 +1,16 @@
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
+
 let defOrd = 'REL';
-let priceFrom = 0;
-let priceTo = 0;
-let prodFilt
+let priceFrom;
+let priceTo;
+let prodFilt;
 let listado = document.getElementById('listadoColeccion');
 const createListOfProd = (productos) => {
 
     listado.innerHTML = "";
     for (let key of productos) {
-        const lista = document.createElement('div');
+        const lista = document.createElement('a');
+        lista.href = "product-info.html";
+        lista.classList.add('list-group-item-action')
         lista.innerHTML = `<div class="row prodSt">
         <div class="col-3">
             <img src="` + key.imgSrc + `" alt="` + key.description + `" class="img-thumbnail">
@@ -55,16 +55,9 @@ function filtradoPorPrecio(productos) {
 }
 
 document.addEventListener("DOMContentLoaded", async function (e) {
-    const parseRedir = JSON.parse(localStorage.getItem('dataUser'));
     
-    //muestra nombre de usuario en barra nav
-    let ingUsu = document.getElementById('showUser')
-    ingUsu.innerHTML = parseRedir[0].user;
 
-    //redirige si no logueado
-    if (parseRedir === null) {
-      window.location.href = "login.html";
-    }
+   
 
     const products = (await getJSONData(PRODUCTS_URL)).data //traigo el json correspondiente
     prodFilt = products;
@@ -72,15 +65,18 @@ document.addEventListener("DOMContentLoaded", async function (e) {
     //siguientes botones orden precio mayor menor y relevancia:
     document.getElementById('AZ').addEventListener('click', () => {
         defOrd = 'AZ';
-        ordPorPrecioYRel(prodFilt, defOrd)
+        if(prodFilt.length != 0){
+        ordPorPrecioYRel(prodFilt, defOrd)}
     })
     document.getElementById('ZA').addEventListener('click', () => {
         defOrd = 'ZA';
-        ordPorPrecioYRel(prodFilt, defOrd)
+        if(prodFilt.length != 0){
+            ordPorPrecioYRel(prodFilt, defOrd)}
     })
     document.getElementById('REL').addEventListener('click', () => {
         defOrd = 'REL';
-        ordPorPrecioYRel(prodFilt, defOrd)
+        if(prodFilt.length != 0){
+            ordPorPrecioYRel(prodFilt, defOrd)}
     })
     document.getElementById('from').addEventListener('input', () => {
         priceFrom = document.getElementById('from').value;
@@ -90,25 +86,20 @@ document.addEventListener("DOMContentLoaded", async function (e) {
     })
     //siguiente filtrado por predio desde hasta:
     document.getElementById('filter').addEventListener('click', () => {
-        if (((priceTo && priceFrom) === "") || ((priceTo && priceFrom) === 0)) {
+        if ((priceTo && priceFrom) === "") {
             ordPorPrecioYRel(prodFilt, defOrd)
-        }else if (parseInt(priceFrom) > parseInt(priceTo)){
+        } else if (parseInt(priceFrom) > parseInt(priceTo)) {
             alert('Ingrese precio mas bajo en DESDE y mas alto en HASTA!!')
-        }else if ((parseInt(priceFrom) < parseInt(priceTo)) && prodFilt.length === 0){
+        } else if (((parseInt(priceFrom) === 0) && (parseInt(priceTo) === 0))) {
             listado.innerHTML = `<h2>No hay productos para ese rango de precios!!</h2>`
-        }else{
+        }else {
             filtradoPorPrecio(products)
+            if (prodFilt.length === 0){
+                listado.innerHTML = `<h2>No hay productos para ese rango de precios!!</h2>`
+            }
         }
     }
+    
     )
-       /*  if (((priceTo && priceFrom) === "") || ((priceTo && priceFrom) === 0)) {
-            ordPorPrecioYRel(prodFilt, defOrd)
-        }
-            
-        else {
-            filtradoPorPrecio(products)
-        }
-        
-    }) */
-
+    
 })
