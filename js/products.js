@@ -5,7 +5,6 @@ let priceTo;
 let prodFilt;
 let listado = document.getElementById('listadoColeccion');
 const createListOfProd = (productos) => {
-
     listado.innerHTML = "";
     for (let key of productos) {
         const lista = document.createElement('a');
@@ -46,41 +45,43 @@ function ordPorPrecioYRel(array, defOrd) {
 //funcion para el filter
 function dentroDeRango(products) {
     return products.cost >= priceFrom && products.cost <= priceTo
-
 }
 //funcion de filtrado
 function filtradoPorPrecio(productos) {
-    prodFilt = productos.filter(dentroDeRango)
+    prodFilt = productos.filter(dentroDeRango)//guardo los prod filtrados asi se pueden ordenar despues de filtrados
     createListOfProd(prodFilt)
 }
 
 document.addEventListener("DOMContentLoaded", async function (e) {
-    
-
-   
 
     const products = (await getJSONData(PRODUCTS_URL)).data //traigo el json correspondiente
     prodFilt = products;
-    ordPorPrecioYRel(prodFilt, defOrd) //se ordena cuando ingreso por relevancia
+    ordPorPrecioYRel(prodFilt, defOrd) //se ordena en ingreso por relevancia
+
     //siguientes botones orden precio mayor menor y relevancia:
     document.getElementById('AZ').addEventListener('click', () => {
         defOrd = 'AZ';
-        if(prodFilt.length != 0){
-        ordPorPrecioYRel(prodFilt, defOrd)}
+        if (prodFilt.length != 0) {
+            ordPorPrecioYRel(prodFilt, defOrd)
+        }
     })
     document.getElementById('ZA').addEventListener('click', () => {
         defOrd = 'ZA';
-        if(prodFilt.length != 0){
-            ordPorPrecioYRel(prodFilt, defOrd)}
+        if (prodFilt.length != 0) {
+            ordPorPrecioYRel(prodFilt, defOrd)
+        }
     })
     document.getElementById('REL').addEventListener('click', () => {
         defOrd = 'REL';
-        if(prodFilt.length != 0){
-            ordPorPrecioYRel(prodFilt, defOrd)}
+        if (prodFilt.length != 0) {
+            ordPorPrecioYRel(prodFilt, defOrd)
+        }
     })
+    //cambia valores en form de input -desde-
     document.getElementById('from').addEventListener('input', () => {
         priceFrom = document.getElementById('from').value;
     })
+    //cambia valores en form de input -hasta-
     document.getElementById('to').addEventListener('input', () => {
         priceTo = document.getElementById('to').value;
     })
@@ -92,14 +93,11 @@ document.addEventListener("DOMContentLoaded", async function (e) {
             alert('Ingrese precio mas bajo en DESDE y mas alto en HASTA!!')
         } else if (((parseInt(priceFrom) === 0) && (parseInt(priceTo) === 0))) {
             listado.innerHTML = `<h2>No hay productos para ese rango de precios!!</h2>`
-        }else {
+        } else {
             filtradoPorPrecio(products)
-            if (prodFilt.length === 0){
+            if (prodFilt.length === 0) {
                 listado.innerHTML = `<h2>No hay productos para ese rango de precios!!</h2>`
             }
         }
-    }
-    
-    )
-    
+    })
 })
