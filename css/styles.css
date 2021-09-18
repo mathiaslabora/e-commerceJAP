@@ -166,3 +166,15 @@ font-size: small;
   opacity: 50;
   background-color: #21a0bc2c;
 }
+
+.checked {
+  color: orange;
+}
+.car{
+  margin: 10px;
+  width: 30%;
+}
+.car:hover{
+  width: 31%;
+ 
+}
