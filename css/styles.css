@@ -170,3 +170,11 @@ font-size: small;
 .checked {
   color: orange;
 }
+.car{
+  margin: 10px;
+  width: 30%;
+}
+.car:hover{
+  width: 31%;
+ 
+}

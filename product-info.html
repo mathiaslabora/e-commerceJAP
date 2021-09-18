@@ -30,33 +30,35 @@
   </nav>
   <div id='desc' class="container p-5">
 
-
-
   </div>
   <div id='com' class="container p-5">
-      
+
   </div>
- <div class="container p-5">
- 
-  <div class="mb-3 col">
-    <div class="d-flex w-100 justify-content-between">
-        <h4 class="mb-1" id="user">Usuario</h4>
-        
-        <select name="estrellas" id="estr">
-
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="">3</option>
-          <option value="">4</option>
-          <option value="">5</option>
-        </select>
+  <div class="container p-5">
+    <div class="mb-3 col">
+      <div class="d-flex w-100 justify-content-between">
+        <h4 class="mb-1" id="user"></h4>
+        <div>
+          <label for="selecPunt">Puntuacion:</label>
+          <select name="selecPunt" id="selecPunt">
+            <option value="1">1 Estrella</option>
+            <option value="2">2 Estrellas</option>
+            <option value="3">3 Estrellas</option>
+            <option value="4">4 Estrellas</option>
+            <option value="5">5 Estrellas</option>
+          </select>
+        </div>
+      </div>
+      <div style="display: flex">
+        <textarea id="ingDesc" style="resize:none; margin-left: auto;margin-right: auto; WIDTH:98%; HEIGHT: 100px">
+    </textarea>
+        <input type="button" id="inserComent" value="Enviar">
+      </div>
     </div>
-   <input type="text" size="100%" id="ingDesc">
-    </div>
 
 
 
- </div>
+  </div>
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>

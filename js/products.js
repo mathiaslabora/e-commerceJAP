@@ -24,7 +24,8 @@ const createListOfProd = (productos) => {
         </div>
     </div>`
         listado.appendChild(lista)
-    }
+            }
+            localStorage.setItem("arrayProductos", JSON.stringify(prodFilt))//guardo array de productos en localStorage
 }
 
 function ordPorPrecioYRel(array, defOrd) {
