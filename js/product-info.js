@@ -1,5 +1,6 @@
 
 let resJson;//array donde se van a guardar todos los comentarios mas los que se agreguen
+let jsonProd;
 let introd = document.getElementById('com');
 let introdDesc = document.getElementById('desc');
 
@@ -52,12 +53,45 @@ const mostrarComent = (par) => {
     }
 }
 
+const relatedProducts =(param)=>{
+    const arrayProdRel = JSON.parse(localStorage.getItem('arrayProductos'));
+let prodRelInput = document.getElementById('putCarousel');
+prodRelInput = "";
+let cont;
+    for(let i of param.relatedProducts){
+        console.log(i)
+        cont = i-1;
+         if(prodRelInput === ""){
+             prodRelInput.innerHTML +=
+           ` <div class="carousel-item active">
+          <img src="`+arrayProdRel[cont].imgSrc+`" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>First slide label</h5>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </div>
+        </div>`
+        }else{prodRelInput.innerHTML +=
+        `<div class="carousel-item">
+          <img src="`+arrayProdRel[cont].imgSrc+`" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Second slide label</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>` }
+    }
+    cont++;
+
+}
+
 document.addEventListener("DOMContentLoaded", function (e) {
+   
 
     getJSONData(PRODUCT_INFO_URL).then(function (result) {
         if (result.status === "ok") {
-            putInfo(result.data);
+            jsonProd = result.data;
         }
+        putInfo(jsonProd);
+        relatedProducts(jsonProd);
     });
 
     getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (result) {
@@ -66,6 +100,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
         mostrarComent(resJson);
     });
+
+    
 
     //muestra usuario en comentarios!
     const parseRedir = JSON.parse(localStorage.getItem('dataUser'));
@@ -98,5 +134,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
         resJson.push(obj)//agrego cometarios al array
         mostrarComent(resJson)//vuelvo a ejecutar para mostrar comentarios mas los agregados
+
+
     })
+    
 });
