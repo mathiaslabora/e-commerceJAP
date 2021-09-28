@@ -56,7 +56,7 @@ if (parseRedir === null) {//si el objeto esta vacio redirige a login
 document.getElementById("cerrar").addEventListener("click", logOf)//escucha boton cerrar sesion
 
   //muestra nombre de usuario en barra nav
-  let ingUsu = document.getElementById('showUser')
+  let ingUsu = document.getElementById('dropdownMenuLink')
   ingUsu.innerHTML = parseRedir[0].user;
 
 
