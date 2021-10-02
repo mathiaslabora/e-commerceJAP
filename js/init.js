@@ -56,8 +56,12 @@ if (parseRedir === null) {//si el objeto esta vacio redirige a login
 document.getElementById("cerrar").addEventListener("click", logOf)//escucha boton cerrar sesion
 
   //muestra nombre de usuario en barra nav
-  let ingUsu = document.getElementById('showUser')
-  ingUsu.innerHTML = parseRedir[0].user;
+  let ingUsu = document.getElementById('dropdownMenuLink');
+  let firstLetterMayus = parseRedir[0].user; 
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+  ingUsu.innerHTML = capitalizeFirstLetter(firstLetterMayus)
 
 
 });

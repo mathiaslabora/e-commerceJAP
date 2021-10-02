@@ -23,39 +23,64 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      <a class="py-2 d-none d-md-inline-block" id="showUser" href="my-profile.html"></a>
-      <input class="btn btn-primary" type="button" id="cerrar" value="Cerrar sesion">
-    </div>
-  </nav>
-  <div id='desc' class="container p-5">
-
-  </div>
-  <div id='com' class="container p-5">
-
-  </div>
-  <div class="container p-5">
-    <div class="mb-3 col">
-      <div class="d-flex w-100 justify-content-between">
-        <h4 class="mb-1" id="user"></h4>
-        <div>
-          <label for="selecPunt">Puntuacion:</label>
-          <select name="selecPunt" id="selecPunt">
-            <option value="1">1 Estrella</option>
-            <option value="2">2 Estrellas</option>
-            <option value="3">3 Estrellas</option>
-            <option value="4">4 Estrellas</option>
-            <option value="5">5 Estrellas</option>
-          </select>
+      <div class="dropdown">
+        <a class="py-2 d-none d-md-inline-block dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown link
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="cart.html">Mi carrito</a>
+          <a class="dropdown-item" href="my-profile.html">Perfil</a>
+          <a class="dropdown-item" id="cerrar" href="">Cerrar sesion</a>
         </div>
       </div>
-      <div style="display: flex">
-        <textarea id="ingDesc" style="resize:none; margin-left: auto;margin-right: auto; WIDTH:98%; HEIGHT: 100px">
-    </textarea>
-        <input type="button" id="inserComent" value="Enviar">
+    </div>
+  </nav>
+  <div class="container p-5">
+    <div id='desc'>
+
+    </div>
+    <div id='com'>
+
+    </div>
+    
+
+    <div class="d-flex w-100 justify-content-between">
+      <h4 class="mb-1" id="user"></h4>
+      <div>
+        <label for="selecPunt">Puntuacion:</label>
+        <select name="selecPunt" id="selecPunt">
+          <option value="1">1 Estrella</option>
+          <option value="2">2 Estrellas</option>
+          <option value="3">3 Estrellas</option>
+          <option value="4">4 Estrellas</option>
+          <option value="5">5 Estrellas</option>
+        </select>
       </div>
     </div>
-
+    <div style="display: flex">
+      <textarea id="ingDesc" style="resize:none; margin-left: auto;margin-right: auto; WIDTH:98%; HEIGHT: 100px">
+    </textarea>
+      <input type="button" id="inserComent" value="Enviar">
+    </div>
+    <p id="messageComment"></p>
+    <div class="relatedDim">
+      <br>
+      <h4>Relacionados:</h4>
+    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+        <div id= "putCarousel" class="carousel-inner">
+        
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
 
 
   </div>
