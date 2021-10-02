@@ -12,32 +12,30 @@ const putInfo = (descProduct) => {
         <br>
         <div class="d-flex w-100 justify-content-between alignA">
         <dl>
-  <dt>Categoria:</dt>
-  <dd>`+ descProduct.category + `</dd>
-   <dt>Costo:</dt>
-  <dd>`+ descProduct.currency + ` ` + descProduct.cost + `</dd>
-  <dt>Vendidos:</dt>
-  <dd>`+ descProduct.soldCount + `</dd>
-</dl>
-
-<div id="carouselExampleCaptions1" class="carousel slide imgComment" data-ride="carousel">
+        <dt>Categoria:</dt>
+        <dd>`+ descProduct.category + `</dd>
+        <dt>Costo:</dt>
+        <dd>`+ descProduct.currency + ` ` + descProduct.cost + `</dd>
+        <dt>Vendidos:</dt>
+        <dd>`+ descProduct.soldCount + `</dd>
+        </dl>
+    <div id="carouselExampleCaptions1" class="carousel slide imgComment" data-ride="carousel">
         <div id= "imgs" class="carousel-inner">
-         </div>
-
-      <a class="carousel-control-prev" href="#carouselExampleCaptions1" role="button" data-slide="prev">
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleCaptions1" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleCaptions1" role="button" data-slide="next">
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleCaptions1" role="button" data-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
-      </a>
+        </a>
+        </div>
     </div>
-    </div>
-    <br>
-    <h4>Descripcion:</h4>
-    <p>`+ descProduct.description + `</p>
-`
+        <br>
+        <h4>Descripcion:</h4>
+        <p>`+ descProduct.description + `</p>`
+
     let divImg = document.getElementById('imgs');
     divImg.innerHTML = "";
     for (let i of descProduct.images) {
@@ -50,11 +48,11 @@ const putInfo = (descProduct) => {
          </div>`
         } else {
             divImg.innerHTML +=
-            `<div class="carousel-item">
+                `<div class="carousel-item">
          <img src="`+ i + `" class="d-block w-100" alt="..."> 
          <div class="carousel-caption d-none d-md-block">
          </div>
-          </div>` }
+         </div>` }
 
     }
 }
@@ -87,38 +85,39 @@ const showComent = (par) => {
 
 const relatedProducts = (param) => {
     const arrayProdRel = JSON.parse(localStorage.getItem('arrayProductos'));
-    console.log(arrayProdRel)
     let prodRelInput = document.getElementById('putCarousel');
     prodRelInput.innerHTML = "";
     let cont;
     for (let i of param.relatedProducts) {
-        console.log(i)
         cont = i - 1;
         if (prodRelInput.innerHTML === "") {
             prodRelInput.innerHTML +=
-                ` <div class="carousel-item active">
-          <img src="`+ arrayProdRel[cont].imgSrc + `" class="d-block w-100" alt="...">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>`+ arrayProdRel[cont].name + `</h5>
-            <p>`+ arrayProdRel[cont].description + `</p>
-          </div>
-        </div>`
+                `<div class="carousel-item active">
+                    <a href='#' style= color:white>
+                    <img src="`+ arrayProdRel[cont].imgSrc + `" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5 class='linksRelatedProd'>`+ arrayProdRel[cont].name + ` - ` + arrayProdRel[cont].currency + ` ` + arrayProdRel[cont].cost + `</h5>
+                    <p class='linksRelatedProd'>`+ arrayProdRel[cont].description + `</p>
+                </div>
+                    </a>
+                </div>`
         } else {
             prodRelInput.innerHTML +=
-            `<div class="carousel-item">
-          <img src="`+ arrayProdRel[cont].imgSrc + `" class="d-block w-100" alt="...">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>`+ arrayProdRel[cont].name + `</h5>
-            <p>`+ arrayProdRel[cont].description + `</p>
-          </div>
-        </div>` }
+                `<div class="carousel-item">
+                    <a href='#' style= color:white>
+                    <img src="`+ arrayProdRel[cont].imgSrc + `" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5 class='linksRelatedProd'>`+ arrayProdRel[cont].name + ` - ` + arrayProdRel[cont].currency + ` ` + arrayProdRel[cont].cost + `</h5>
+                    <p class='linksRelatedProd'>`+ arrayProdRel[cont].description + `</p>
+                </div>
+                    </a>
+                </div>` }
     }
 
 
 }
 
 document.addEventListener("DOMContentLoaded", function (e) {
-
 
     getJSONData(PRODUCT_INFO_URL).then(function (result) {
         if (result.status === "ok") {
@@ -135,11 +134,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
         showComent(resultJson);
     });
 
-
-
     //muestra usuario en comentarios!
     const parseRedir = JSON.parse(localStorage.getItem('dataUser'));
     let usr = document.getElementById('user');
+    //vuelvo nombre usuario con primer letra mayuscula
     let toUpperCase = parseRedir[0].user;
     function capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
@@ -148,7 +146,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
     let score = 1;
     let comm = "";
-
 
     //toma puntaje y guardo
     document.getElementById('selecPunt').addEventListener('change', () => {
@@ -160,20 +157,29 @@ document.addEventListener("DOMContentLoaded", function (e) {
     })
     //boton inserta comentario, en el array agrego un objeto con las propiedades para poder iterar
     document.getElementById('inserComent').addEventListener('click', () => {
-        let date = new Date();//fecha para ingreso coment
+        //fecha para ingreso coment
+        let date = new Date();
         let mes = date.getMonth() + 1;
         let dateComp = date.getFullYear() + '-' + mes + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
-
+        //creo objeto con los datos ingresados
         let obj = {
             description: comm,
             score: score,
             user: parseRedir[0].user,
             dateTime: dateComp
         }
-        resultJson.push(obj)//agrego cometarios al array
-        showComent(resultJson)//vuelvo a ejecutar para mostrar comentarios mas los agregados
+        //agrego cometarios al array
+        resultJson.push(obj)
+        //vuelvo a ejecutar funcion para mostrar comentarios mas los agregados
+        showComent(resultJson)
+        //elimino contenido del input y vuelvo selector de score a 1
         document.getElementById('ingDesc').value = "";
         document.getElementById('selecPunt').value = 1;
+
+        //muestro mensaje al enviar comentario y luego de temporizador lo elimino
+        document.getElementById('messageComment').innerHTML = "Gracias por su comentario!!";
+        const deleteMessage = () => { document.getElementById('messageComment').innerHTML = "" };
+        setTimeout(deleteMessage, 2500);
     })
 
 });
