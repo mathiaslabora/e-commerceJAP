@@ -198,3 +198,12 @@ a.custom-card, a.custom-card:hover {
 .linksRelatedProd{
   background-color: rgba(0, 0, 0, 0.432);
 }
+.sizeInput{
+width: 30%;
+
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
