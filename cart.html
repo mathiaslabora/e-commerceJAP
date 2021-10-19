@@ -53,48 +53,61 @@
       </div>
     </div>
   </nav>
-  <div class="container p-5">
-  <h1 class="titleCenter">Carrito</h1>
-  <br>
-  <br>
-  <hr>    
-      <div  id="putProd">
+  <!-- cabecera -->
+  <div class="container p-5 backColor">
+    <h1 class="titleCenter">Carrito</h1>
+    <label for="curr">
+      Moneda:
+    </label><select name="curr" id="curr">
+      <option value="UYU">UYU</option>
+      <option value="USD">USD</option>
+    </select>
+    <br>
+    <hr>
+<!--     div para introducir los productos -->
+    <div id="putProd">
+    </div>
+    <div class="d-flex w-100 justify-content-between">
+      <!-- div para selectores modo pago, envio -->
+      <div class="tabChil col">
+        <label for="metEnv">
+          <h5>Seleccione método de envío:</h5>
+        </label>
+        <select name="metEnv" id="metEnv">
+          <option value="100" checked>Estandard</option>
+          <option value="200">Express</option>
+          <option value="300">Premium</option>
+        </select>
+        <hr>
+        <h5>Seleccione modo de pago: </h5>
+        <label for="modPag1">
+          Tarjeta de Credito: <input type="radio" name="modPag" id="modPag1" checked></label>
+        <label for="modPag2">
+          Transferencia: <input type="radio" name="modPag" id="modPag2"></label>
       </div>
-    
-          
-      <tr>
-        <th>Subtotal:</th>
-        <td>Maria Anders</td>
-       </tr>
-      <tr>
-        <th>Costo de envío:</th>
-        <td>Francisco Chang</td>
-        
-      </tr>
-    </table> 
-    
-    <div>
-        
+<!--       siguiente div para ingresar tabla con calculos subtotal costo env total y botones -->
+      <div class="col">
+        <table id="putTableR" class="tabChil backColor">
+        </table>
+        <input class="btn btn-primary" id="buy" type="button" value="Comprar">
+        <div id="messageSucc"></div>
       </div>
+    </div>
 
-
-
-
-
-        </div>
-      <div id="spinner-wrapper">
-        <div class="lds-ring">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      </div>
-      <script src="js/jquery-3.4.1.min.js"></script>
-      <script src="js/bootstrap.bundle.min.js"></script>
-      <script src="js/dropzone.js"></script>
-      <script src="js/init.js"></script>
-      <script src="js/cart.js"></script>
+  </div>
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/dropzone.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/cart.js"></script>
 </body>
 
 </html>
