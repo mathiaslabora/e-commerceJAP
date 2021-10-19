@@ -59,9 +59,9 @@ const putInfo = (descProduct) => {
 
 const showComent = (par) => {
     introdComent.innerHTML = `<hr><h3>Comentarios:</h3><br>`;
-    for (let i of par) {//agrego las estrellas naranjas en base a la puntuacion
+    for (let i of par) {
         let star = "";
-        for (let x = 1; x <= i.score; x++) {
+        for (let x = 1; x <= i.score; x++) {//agrego las estrellas naranjas en base a la puntuacion
             star += `<span class="fa fa-star checked"></span> `
         }
         let calc = 5 - i.score;
@@ -124,6 +124,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
             jsonProd = result.data;
         }
         putInfo(jsonProd);
+        console.log(jsonProd)
         relatedProducts(jsonProd);
     });
 

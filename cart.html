@@ -53,13 +53,47 @@
       </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 17/10/2021) y Entrega 7 (Fecha de entrega: 14/11/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <!-- cabecera -->
+  <div class="container p-5 backColor">
+    <h1 class="titleCenter">Carrito</h1>
+    <label for="curr">
+      Moneda:
+    </label><select name="curr" id="curr">
+      <option value="UYU">UYU</option>
+      <option value="USD">USD</option>
+    </select>
+    <br>
+    <hr>
+<!--     div para introducir los productos -->
+    <div id="putProd">
     </div>
+    <div class="d-flex w-100 justify-content-between">
+      <!-- div para selectores modo pago, envio -->
+      <div class="tabChil col">
+        <label for="metEnv">
+          <h5>Seleccione método de envío:</h5>
+        </label>
+        <select name="metEnv" id="metEnv">
+          <option value="100" checked>Estandard</option>
+          <option value="200">Express</option>
+          <option value="300">Premium</option>
+        </select>
+        <hr>
+        <h5>Seleccione modo de pago: </h5>
+        <label for="modPag1">
+          Tarjeta de Credito: <input type="radio" name="modPag" id="modPag1" checked></label>
+        <label for="modPag2">
+          Transferencia: <input type="radio" name="modPag" id="modPag2"></label>
+      </div>
+<!--       siguiente div para ingresar tabla con calculos subtotal costo env total y botones -->
+      <div class="col">
+        <table id="putTableR" class="tabChil backColor">
+        </table>
+        <input class="btn btn-primary" id="buy" type="button" value="Comprar">
+        <div id="messageSucc"></div>
+      </div>
+    </div>
+
   </div>
   <div id="spinner-wrapper">
     <div class="lds-ring">

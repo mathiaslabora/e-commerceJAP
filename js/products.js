@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", async function (e) {
     document.getElementById('to').addEventListener('input', () => {
         priceTo = document.getElementById('to').value;
     })
-    //siguiente filtrado por predio desde hasta:
+    //siguiente filtrado por precio desde hasta:
     document.getElementById('filter').addEventListener('click', () => {
         if ((priceTo && priceFrom) === "") {
             ordPorPrecioYRel(prodFilt, defOrd)
