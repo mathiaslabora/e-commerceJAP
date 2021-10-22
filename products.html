@@ -41,10 +41,13 @@
   <div class="container" id="buttonsFilter">
     <form class="formFilter">
       <label for="from">
-    Precio desde:</label> <input class="buttonFilt" type="number" id="from" width="50%">
-    <label for="to">Hasta</label><input class="buttonFilt" type="number" id="to">
-    <label for="filter"><i class="fas fa-filter"></i></label>
-    <input class="buttonFilt fa-filter:before" type="button" id="filter" value="Filtrar">
+        Precio desde:</label>
+      <input class="buttonFilt" type="number" id="from" width="50%">
+      <label for="to">Hasta</label>
+      <input class="buttonFilt" type="number" id="to">
+      <label for="filter"><i class="fas fa-filter"></i></label>
+      <input class="buttonFilt fa-filter:before" type="button" id="filter" value="Filtrar">
+      <input class="buttonFilt fa-filter:before" type="button" id="cleanFilter" value="Limpiar Filtro">
     </form><br><br>
 
     <form class="formFilter">
@@ -52,13 +55,15 @@
       <input class="buttonFilt" type="button" id="AZ" value="Menor precio">
       <input class="buttonFilt" type="button" id="ZA" value="Mayor precio">
       <input class="buttonFilt" type="button" id="REL" value="Relevancia">
-</form><br><br>
- 
+    </form><br><br>
+
   </div>
-  <div class="container" id="listadoColeccion">
-    
-   
-</div>
+  <div class="album py-5 bg-light">
+    <div class="container" id="listadoColeccion">
+
+
+    </div>
+  </div>
   </footer>
   <div id="spinner-wrapper">
     <div class="lds-ring">
@@ -72,7 +77,7 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/products.js"></script>
-  
+
 </body>
 
 </html>
