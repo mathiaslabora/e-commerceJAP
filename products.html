@@ -35,33 +35,59 @@
       </div>
     </div>
   </nav>
-  <br>
-  <h2 class="container titleCenter">Aqui se detallan nuestros productos:</h2><br><br>
+  <div class="container">
+    <h2 class="titleCenter mb-5">Aqui se detallan nuestros productos:</h2>
 
-  <div class="container" id="buttonsFilter">
-    <form class="formFilter">
-      <label for="from">
-        Precio desde:</label>
-      <input class="buttonFilt" type="number" id="from" width="50%">
-      <label for="to">Hasta</label>
-      <input class="buttonFilt" type="number" id="to">
-      <label for="filter"><i class="fas fa-filter"></i></label>
-      <input class="buttonFilt fa-filter:before" type="button" id="filter" value="Filtrar">
-      <input class="buttonFilt fa-filter:before" type="button" id="cleanFilter" value="Limpiar Filtro">
-    </form><br><br>
+    <div class="row mb-3 justify-content-start">
+      <div class="col-2">
+        <input class="form-control" type="number" id="from" width="50%" placeholder="Precio desde:">
+      </div>
+      <i class="fas fa-filter"></i>
+      <div class="col-2">
+        <input class="form-control" type="number" id="to" placeholder="Hasta:">
+      </div>
 
-    <form class="formFilter">
-      <label>Ordenar por:</label>
-      <input class="buttonFilt" type="button" id="AZ" value="Menor precio">
-      <input class="buttonFilt" type="button" id="ZA" value="Mayor precio">
-      <input class="buttonFilt" type="button" id="REL" value="Relevancia">
-    </form><br><br>
+      <div class="col-2">
+        <div class="btn-group" role="group">
+          <input class="form-control" type="button" id="filter" value="Filtrar">
+          <input class="form-control" type="button" id="cleanFilter" value="Limpiar">
+        </div>
+      </div>
 
+    </div>
+    <div class="row mb-3 justify-content-start">
+
+      <div class="col">
+
+        <div class="btn-group" aria-describedby="inputGroup-sizing-default" role="group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Ordenar por:</span>
+          </div>
+          <input class="form-control" type="button" id="AZ" value="Menor precio">
+          <input class="form-control" type="button" id="ZA" value="Mayor precio">
+          <input class="form-control" type="button" id="REL" value="Relevancia">
+
+        </div>
+      </div>
+
+
+    </div>
+    <div class="row justify-content-start">
+      <div class="col-4 form-group">
+        <input class="form-control" type="search" id="SER" placeholder="Buscar por nombre:">
+      </div>
+    </div>
   </div>
-  <div class="album py-5 bg-light">
-    <div class="container" id="listadoColeccion">
 
 
+
+  <div class="container">
+    <div id="putMsj"></div>
+    <div class="album py-3 bg-light">
+      <div class="container" id="listadoColeccion">
+
+
+      </div>
     </div>
   </div>
   </footer>

@@ -57,42 +57,99 @@
    
     <h1 class="text-center">Perfil</h1>
     <br>
-        <div class="row">
-     <div class="input-group mb-3 col-sm">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroup-sizing-default">*Nombre:</span>
-    </div>
-    <input id="name" type="text" class="form-control"  aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
-  </div>
-  
-  <div class="input-group mb-3 col-sm">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroup-sizing-default">*Edad:</span>
-    </div>
-    <input id="age" type="number" class="form-control"  aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
-  </div>
-  
-</div>
-<br>
-<div class="row">
-  <div class="input-group mb-3 col-sm">
- <div class="input-group-prepend">
-   <span class="input-group-text" id="inputGroup-sizing-default">*Correo:</span>
- </div>
- <input id="mail" type="email" class="form-control"  aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
-</div>
 
-<div class="input-group mb-3 col-sm">
- <div class="input-group-prepend">
-   <span class="input-group-text" id="inputGroup-sizing-default">Telefono:</span>
+    <div class="col-4" id="profileWelcome"></div>
+    <!--  muestra datos -->
+    <div class="row">
+      <div class="input-group mb-3 col-sm">
+     <div class="input-group-prepend">
+       <span class="input-group-text" id="inputGroup-sizing-default">*Nombre:</span>
+     </div>
+     <input id="name2" readonly type="text" class="form-control"  aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+   </div>
+   
+   <div class="input-group mb-3 col-sm">
+     <div class="input-group-prepend">
+       <span class="input-group-text" id="inputGroup-sizing-default">*Edad:</span>
+     </div>
+     <input id="age2" readonly type="number" class="form-control"  aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+   </div>
+   
  </div>
- <input id="tel" type="tel" class="form-control"  aria-label="Default" aria-describedby="inputGroup-sizing-default">
-</div>
+ <br>
+ <div class="row">
+   <div class="input-group mb-3 col-sm">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">*Correo:</span>
+  </div>
+  <input id="mail2" readonly type="email" class="form-control"  aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+ </div>
+ 
+ <div class="input-group mb-3 col-sm">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">Telefono:</span>
+  </div>
+  <input id="tel2" readonly type="tel" class="form-control"  aria-label="Default" aria-describedby="inputGroup-sizing-default">
+ </div>
+ </div>
+ <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Editar datos
+</button>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          
+          <div class="modal-body">
+          <div class="row">
+              <div class="input-group mb-3 col-sm">
+             <div class="input-group-prepend">
+               <span class="input-group-text" id="inputGroup-sizing-default">*Nombre:</span>
+             </div>
+             <input id="name" type="text" class="form-control"  aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+           </div>
+          </div>
+          <br>
+          <div class="row"> 
+          <div class="input-group mb-3 col-sm">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default">*Correo:</span>
+            </div>
+            <input id="mail" type="email" class="form-control"  aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+           </div>
+          </div>
+           
+         
+         <br>
+         <div class="row">
+          <div class="input-group mb-3 col-sm">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default">*Edad:</span>
+            </div>
+            <input id="age" type="number" class="form-control"  aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+          </div>
+         
+         <div class="input-group mb-3 col-sm">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Telefono:</span>
+          </div>
+          <input id="tel" type="tel" class="form-control"  aria-label="Default" aria-describedby="inputGroup-sizing-default">
+         </div>
+         
+         </div>
 
-</div>
-<br>
-  <input type="button" class="btn btn-primary" id="save" value="Guardar">
-  <div id="intMsj"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  <input type="button" class="btn btn-primary" data-dismiss="modal" id="save" value="Guardar">
+  
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+        
+    <div id="intMsj"></div>
 
   </div>
   <div id="spinner-wrapper">
