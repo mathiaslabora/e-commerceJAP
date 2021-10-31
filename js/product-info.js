@@ -1,4 +1,4 @@
-
+"use strict";
 let resultJson;//array donde se van a guardar todos los comentarios mas los que se agreguen
 let jsonProd;
 let introdComent = document.getElementById('com');

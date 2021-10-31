@@ -1,3 +1,4 @@
+"use strict";
 let divPut = document.getElementById('putProd');
 let tabPut = document.getElementById('putTableR');
 let selectSendMetod = document.getElementById('metEnv');
