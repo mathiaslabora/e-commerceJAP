@@ -64,35 +64,126 @@
     </select>
     <br>
     <hr>
-<!--     div para introducir los productos -->
+    <!--     div para introducir los productos -->
     <div id="putProd">
     </div>
     <div class="d-flex w-100 justify-content-between">
       <!-- div para selectores modo pago, envio -->
-      <div class="tabChil col">
-        <label for="metEnv">
-          <h5>Seleccione método de envío:</h5>
-        </label>
-        <select name="metEnv" id="metEnv">
-          <option value="100" checked>Estandard</option>
-          <option value="200">Express</option>
-          <option value="300">Premium</option>
-        </select>
+      <div class="col mt-3">
+        Seleccionar metodo de envío:
+        <button type="button" class="btn btn-primary" id="openMetS" data-toggle="modal" data-target="#exampleModal2">
+          Envío
+        </button>
         <hr>
-        <h5>Seleccione modo de pago: </h5>
-        <label for="modPag1">
-          Tarjeta de Credito: <input type="radio" name="modPag" id="modPag1" checked></label>
-        <label for="modPag2">
-          Transferencia: <input type="radio" name="modPag" id="modPag2"></label>
+        Seleccionar forma de pago:
+        <button type="button" class="btn btn-primary" id="openPay" data-toggle="modal" data-target="#exampleModal">
+          Pago
+        </button>
       </div>
-<!--       siguiente div para ingresar tabla con calculos subtotal costo env total y botones -->
+
+
+      <!--       siguiente div para ingresar tabla con calculos subtotal costo env total y botones -->
       <div class="col">
-        <table id="putTableR" class="tabChil backColor">
+        <table id="putTableR" class="tabChil">
         </table>
         <input class="btn btn-primary" id="buy" type="button" value="Comprar">
         <div id="messageSucc"></div>
       </div>
     </div>
+
+
+
+
+    <!-- Modal forma PAGO -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Forma de pago:</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h5>Seleccione modo de pago: </h5>
+            <Select class="mb-4" id="selecMet">
+              <option value="TJ">Tarjeta de Credito</option>
+              <option value="TR">Transferencia</option>
+            </Select>
+
+            <div id="addMet">
+              <div class="form-group">
+
+                <form>
+                  <label for="t">Nombre y apellido del titular:</label>
+                  <input class="form-control mb-4" id="nameS" placeholder="Ingrese nombre y apellido" type="text">
+
+                  <label for="n">Numero tarjeta de credito:</label>
+                  <input class="form-control mb-4" id="tar" placeholder="Ingrese entre 10 y 14 digitos de su tarjeta"
+                    type="number">
+
+                  <label for="d">Fecha de vencimiento:</label>
+                  <input class="form-control mb-4" id="dat" type="date">
+
+                  <label for="c">CVV:</label>
+                  <input class="form-control mb-4" id="cvv" placeholder="Numero de 3 o 4 digitos" type="text">
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="btnPay" class="btn btn-primary">Listo</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- MODAL MET ENV: -->
+    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Método de envío:</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+            <div class="form-group">
+
+              <form>
+                <label for="t">Dirección:</label>
+                <input class="form-control mb-4" id="address" placeholder="Calle y número:" type="text">
+                <input class="form-control mb-4" id="corner" placeholder="Esquina:" type="text">
+                <input class="form-control mb-4" id="country" placeholder="Pais:" type="text">
+
+                <div class="tabChil col">
+                  <label for="metEnv">
+                    <h5>Seleccione método de envío:</h5>
+                  </label>
+                  <select class="form-control mb-4" name="metEnv" id="metEnv">
+                    <option value="0.05" checked>Estandard</option>
+                    <option value="0.07">Express</option>
+                    <option value="0.15">Premium</option>
+                  </select>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btnSend" class="btn btn-primary">Listo</button>
+        </div>
+      </div>
+    </div>
+
+
+
+
 
   </div>
   <div id="spinner-wrapper">
