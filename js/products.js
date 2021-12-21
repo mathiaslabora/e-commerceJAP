@@ -3,32 +3,28 @@ let defOrd = 'REL';
 let priceFrom;
 let priceTo;
 let prodFilt;
-let listado = document.getElementById('listadoColeccion');
+let list = document.getElementById('listColection');
 let msj = document.getElementById('putMsj')
 const createListOfProd = (productos) => {
-    listado.innerHTML = "";
+    list.innerHTML = "";
     const lista = document.createElement('div');
     lista.classList.add('row')
-    for (let key of productos) {       
+    for (let key of productos) {
         lista.innerHTML += `
-        
-        
         <div class="col-md-4">
         <a href="product-info.html" class="card mb-4 shadow-sm custom-card">
-        <img src="` + key.imgSrc + `" alt="` + key.description + `" class="img-thumbnail">
-          <h3 class="m-3">`+ key.name + `</h3>
-          
+            <img src="` + key.imgSrc + `" alt="` + key.description + `" class="img-thumbnail">
+            <h3 class="m-3">`+ key.name + `</h3>
           <div class="card-body">
-          <small class="text-muted">` + key.soldCount + ` vendidos</small>
+            <small class="text-muted">` + key.soldCount + ` vendidos</small>
             <p class="card-text">` + key.description + `</p>
             <p class="mb-1">` + key.currency + ` ` + key.cost + `</p>
           </div>
         </a>
-      </div>
-           `
-        listado.appendChild(lista)
-            }
-            localStorage.setItem("arrayProductos", JSON.stringify(prodFilt))//guardo array de productos en localStorage
+      </div>`
+        list.appendChild(lista)
+    }
+    localStorage.setItem("arrayProductos", JSON.stringify(prodFilt))//guardo array de productos en localStorage
 }
 
 
@@ -49,7 +45,7 @@ en forma de listas:
     </div> */
 
 
-
+//funcion para ordenar productos, predeterminado tenemos por relevancia(cantidad vendidos)
 function ordPorPrecioYRel(array, defOrd) {
     defOrd === 'AZ' ? array.sort((a, b) => {
         return a.cost - b.cost
@@ -58,35 +54,34 @@ function ordPorPrecioYRel(array, defOrd) {
             return b.cost - a.cost
         })
             : array.sort((a, b) => {
-                if (a.soldCount < b.soldCount) { return 1 }
-                else { return -1 }
-                return 0;
+                return b.soldCount - a.soldCount
             })
     return createListOfProd(array)
 }
 
-//funcion para el filter
+//funcion auxiliar para el filter
 function dentroDeRango(products) {
     return products.cost >= priceFrom && products.cost <= priceTo
 }
 //funcion de filtrado
 function filtradoPorPrecio(productos) {
-    if (priceFrom !== undefined && priceFrom !== undefined){
-    prodFilt = productos.filter(dentroDeRango)//guardo los prod filtrados asi se pueden ordenar despues de filtrados
-    createListOfProd(prodFilt)}
+    if (priceFrom !== undefined && priceFrom !== undefined) {
+        prodFilt = productos.filter(dentroDeRango)//guardo los prod filtrados asi se pueden ordenar despues de filtrados
+        createListOfProd(prodFilt)
+    }
 }
 
 
 //funcion buscar
 let valueSerch = document.getElementById('SER');
 valueSerch.value = ""
-const auxfiltSearch =(products)=>{
-       return ((products.name).toUpperCase()).includes((valueSerch.value).toUpperCase())
-    }
-    const filtSearch =(q)=>{
-        prodFilt = q.filter(auxfiltSearch);
-        createListOfProd(prodFilt)
-    }
+const auxFiltSearch = (products) => {
+    return ((products.name).toUpperCase()).includes((valueSerch.value).toUpperCase())
+}
+const filtSearch = (q) => {
+    prodFilt = q.filter(auxFiltSearch);
+    createListOfProd(prodFilt)
+}
 
 
 document.addEventListener("DOMContentLoaded", async function (e) {
@@ -96,11 +91,10 @@ document.addEventListener("DOMContentLoaded", async function (e) {
     ordPorPrecioYRel(prodFilt, defOrd) //se ordena en ingreso por relevancia
 
     //buscar
-
-document.getElementById('SER').addEventListener('keyup', ()=>{
-    filtSearch(products)
-    console.log(valueSerch.value)
-})
+    document.getElementById('SER').addEventListener('keyup', () => {
+        filtSearch(products)
+        console.log(valueSerch.value)
+    })
 
 
 
@@ -125,16 +119,15 @@ document.getElementById('SER').addEventListener('keyup', ()=>{
         }
     })
 
-
-//limpia filtro
-document.getElementById('cleanFilter').addEventListener('click', () => {
-    document.getElementById('from').value = "";
-    document.getElementById('to').value = "";
-    priceFrom = undefined;
-    priceTo = undefined;
-prodFilt = products
-    ordPorPrecioYRel(prodFilt, defOrd)
-})
+    //limpia filtro
+    document.getElementById('cleanFilter').addEventListener('click', () => {
+        document.getElementById('from').value = "";
+        document.getElementById('to').value = "";
+        priceFrom = undefined;
+        priceTo = undefined;
+        prodFilt = products
+        ordPorPrecioYRel(prodFilt, defOrd)
+    })
 
 
     //cambia valores en form de input -desde-
@@ -147,8 +140,8 @@ prodFilt = products
     })
     //siguiente filtrado por precio desde hasta:
     document.getElementById('filter').addEventListener('click', () => {
-        if(priceFrom === undefined && priceTo !== undefined){
-             priceFrom = 0;
+        if (priceFrom === undefined && priceTo !== undefined) {
+            priceFrom = 0;
         }
         if ((priceTo && priceFrom) === "") {
             ordPorPrecioYRel(prodFilt, defOrd)
@@ -158,18 +151,18 @@ prodFilt = products
                 Ingrese precio mas bajo en DESDE y mas alto en HASTA!!
 </div>
 `
-  setTimeout(() => {
-document.getElementById('intMsj').innerHTML = "";
-}, 4000)
+            setTimeout(() => {
+                document.getElementById('intMsj').innerHTML = "";
+            }, 4000)
         } else if (((parseInt(priceFrom) === 0) && (parseInt(priceTo) === 0))) {
             msj.innerHTML = `
                 <div class="alert alert-primary" role="alert">
   No hay productos para ese rango de precios!!
 </div>
 `
-  setTimeout(() => {
-msj.innerHTML = "";
-}, 4000)
+            setTimeout(() => {
+                msj.innerHTML = "";
+            }, 4000)
         } else {
             filtradoPorPrecio(products)
             if (prodFilt.length === 0) {
@@ -178,9 +171,9 @@ msj.innerHTML = "";
   No hay productos para ese rango de precios!!
 </div>
 `
-  setTimeout(() => {
-msj.innerHTML = "";
-}, 4000)
+                setTimeout(() => {
+                    msj.innerHTML = "";
+                }, 4000)
             }
         }
     })
